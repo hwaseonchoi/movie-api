@@ -8,12 +8,12 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/movie")
+ * @Route("/api/movies")
  */
 class MovieController extends AbstractController
 {
     /**
-     * @Route("/{id}", requirements={"id":"\d+"}, methods={"GET"})
+     * @Route(path="/{id}", requirements={"id":"\d+"}, methods={"GET"}, name="get_details")
      *
      * @param int $id
      * @param TmdbApiService $tmdbApiService

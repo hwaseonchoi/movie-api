@@ -2,7 +2,7 @@
 
 namespace App\Service;
 
-use App\Model\MovieDetails;
+use App\Model\Movie;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient as HttpContract;
 
@@ -35,7 +35,7 @@ class TmdbApiService
         if (Response::HTTP_OK === $response->getStatusCode()) {
             $data = $response->getContent();
             $decodedData = json_decode($data);
-            $movieDetails = new MovieDetails();
+            $movieDetails = new Movie();
             $movieDetails->setId($decodedData->id);
             $movieDetails->setImdbId($decodedData->imdb_id);
             $movieDetails->setTitle($decodedData->title);

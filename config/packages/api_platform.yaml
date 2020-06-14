@@ -1,6 +1,9 @@
 api_platform:
+    title: 'Symfony REST Movie API'
+    version: '1.0.0'
+    description: 'A Symfony API to retrieve a movie detail'
     mapping:
-        paths: ['%kernel.project_dir%/src/Entity']
+        paths: ['%kernel.project_dir%/src/Model']
     patch_formats:
         json: ['application/merge-patch+json']
     swagger:

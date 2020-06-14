@@ -2,7 +2,21 @@
 
 namespace App\Model;
 
-class MovieDetails
+use ApiPlatform\Core\Annotation\ApiResource;
+
+/**
+ * @ApiResource(
+ *     collectionOperations={},
+ *     itemOperations={"get",
+ *     "get_details": {
+ *             "method": "GET",
+ *             "path": "/movies/{id}",
+ *             "controller": MovieController::class
+ *         }
+ * }
+ * )
+ */
+class Movie
 {
     /**
      * @var int
