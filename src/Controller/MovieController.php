@@ -16,6 +16,6 @@ class MovieController extends AbstractController
      */
     public function getDetails(int $id, TmdbApiService $tmdbApiService)
     {
-        $tmdbApiService->search(['entry_point' => 'movie/'.$id]);
+        $tmdbApiService->serializeData(['entry_point' => 'movie/'.$id]);
     }
 }

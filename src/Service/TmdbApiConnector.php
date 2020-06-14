@@ -3,6 +3,7 @@
 namespace App\Service;
 
 use Symfony\Component\HttpClient\HttpClient;
+use Symfony\Contracts\HttpClient as HttpContract;
 
 class TmdbApiConnector
 {
@@ -16,10 +17,10 @@ class TmdbApiConnector
     }
 
     /**
-     * @param string $method
-     * @param string $criteria
-     * @return \Symfony\Contracts\HttpClient\ResponseInterface
-     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
+     * @param array $criteria
+     *
+     * @return HttpContract\ResponseInterface
+     * @throws HttpContract\Exception\TransportExceptionInterface
      */
     public function get(array $criteria)
     {
