@@ -2,6 +2,7 @@
 
 namespace App\Service;
 
+use App\Model\MovieDetails;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Contracts\HttpClient as HttpContract;
 
@@ -27,12 +28,23 @@ class TmdbApiService
         return $this->connector->get($criteria);
     }
 
-    public function serializeData($criteria)
+    public function getData($criteria)
     {
         $response = $this->search($criteria);
 
         if (Response::HTTP_OK === $response->getStatusCode()) {
             $data = $response->getContent();
+            $decodedData = json_decode($data);
+            $movieDetails = new MovieDetails();
+            $movieDetails->setId($decodedData->id);
+            $movieDetails->setImdbId($decodedData->imdb_id);
+            $movieDetails->setTitle($decodedData->title);
+            $movieDetails->setPosterPath($decodedData->poster_path);
+            $movieDetails->setYear(substr($decodedData->release_date, 0,4));
+            $movieDetails->setRating($decodedData->vote_average);
+            $movieDetails->setRatingCount($decodedData->vote_count);
+
+            return $movieDetails;
         }
     }
 }

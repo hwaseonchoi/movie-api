@@ -48,11 +48,27 @@ class MovieDetails
     }
 
     /**
+     * @param int $id
+     */
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
      * @return string|null
      */
     public function getImdbId(): ?string
     {
         return $this->imdbId;
+    }
+
+    /**
+     * @param string|null $imdbId
+     */
+    public function setImdbId(?string $imdbId): void
+    {
+        $this->imdbId = $imdbId;
     }
 
     /**
@@ -64,11 +80,27 @@ class MovieDetails
     }
 
     /**
+     * @param string $title
+     */
+    public function setTitle(string $title): void
+    {
+        $this->title = $title;
+    }
+
+    /**
      * @return string|null
      */
     public function getPosterPath(): ?string
     {
         return $this->posterPath;
+    }
+
+    /**
+     * @param string|null $posterPath
+     */
+    public function setPosterPath(?string $posterPath): void
+    {
+        $this->posterPath = $posterPath;
     }
 
     /**
@@ -80,6 +112,14 @@ class MovieDetails
     }
 
     /**
+     * @param string $year
+     */
+    public function setYear(string $year): void
+    {
+        $this->year = $year;
+    }
+
+    /**
      * @return float
      */
     public function getRating(): float
@@ -88,10 +128,26 @@ class MovieDetails
     }
 
     /**
+     * @param float $rating
+     */
+    public function setRating(float $rating): void
+    {
+        $this->rating = $rating;
+    }
+
+    /**
      * @return int
      */
     public function getRatingCount(): int
     {
         return $this->ratingCount;
+    }
+
+    /**
+     * @param int $ratingCount
+     */
+    public function setRatingCount(int $ratingCount): void
+    {
+        $this->ratingCount = $ratingCount;
     }
 }
