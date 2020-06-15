@@ -6,13 +6,15 @@ You should have [composer](https://getcomposer.org/download/) installed, which i
 package manager for PHP because the api is made with [Symfony 5](https://symfony.com/doc/current/index.html) & [Api Platform](https://api-platform.com/) to make this work.
 
 ## Install
-- Clone this repository and go to the project directory
-- Type in your terminal to set up the project:   
+1. Clone this repository and go to the project directory
+2. Type in your terminal to set up the project:   
 ```composer install```
-- Launch the native php server:   
- ```php -S localhost:8000 -t public```
+3. Launch the native php server:   
+ ```php -S localhost:8000 -t public```   
+4. Create a `.env` file then in the project root directory, copy & paste from `.env.dist` and you need to add your the movie database api key in your .env file. (Please contact me if you don't have any, I can provide it. :wink:)
 
 ## How to test
+
 Now the local server is on, you open yo`ur browser and go to this url:    
 ```http://localhost:8000/api```
 

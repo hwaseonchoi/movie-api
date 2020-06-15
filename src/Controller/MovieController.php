@@ -16,7 +16,7 @@ class MovieController extends AbstractController
      * @Route(
      *     path="/{id}",
      *     requirements={"id":"\d+"},
-     *     methods={"GET"},
+     *     ={"GET"},
      *     name="get_details"
      * )
      *
@@ -32,6 +32,8 @@ class MovieController extends AbstractController
      */
     public function getDetails(int $id, TmdbApiService $tmdbApiService)
     {
+        // It would be great to handle different responses returning from the api if more time
+
         return new JsonResponse($tmdbApiService->getData(['entry_point' => 'movie/'.$id]));
     }
 }

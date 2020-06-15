@@ -21,7 +21,7 @@ class TmdbApiService
     /**
      * Manage the response from the tmdb API
      *
-     * @param $criteria
+     * @param array $criteria
      * @return Movie|null
      *
      * @throws HttpContract\Exception\ClientExceptionInterface

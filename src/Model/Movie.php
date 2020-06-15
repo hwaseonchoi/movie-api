@@ -7,13 +7,14 @@ use ApiPlatform\Core\Annotation\ApiResource;
 /**
  * @ApiResource(
  *     collectionOperations={},
- *     itemOperations={"get",
+ *     itemOperations={
+ *     "get",
  *     "get_details": {
  *             "method": "GET",
  *             "path": "/movies/{id}",
  *             "controller": MovieController::class
  *         }
- * }
+ *     }
  * )
  */
 class Movie
