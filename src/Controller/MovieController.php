@@ -16,7 +16,7 @@ class MovieController extends AbstractController
      * @Route(
      *     path="/{id}",
      *     requirements={"id":"\d+"},
-     *     ={"GET"},
+     *     methods={"GET"},
      *     name="get_details"
      * )
      *
