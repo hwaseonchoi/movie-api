@@ -13,12 +13,22 @@ use Symfony\Component\Routing\Annotation\Route;
 class MovieController extends AbstractController
 {
     /**
-     * @Route(path="/{id}", requirements={"id":"\d+"}, methods={"GET"}, name="get_details")
+     * @Route(
+     *     path="/{id}",
+     *     requirements={"id":"\d+"},
+     *     methods={"GET"},
+     *     name="get_details"
+     * )
      *
      * @param int $id
      * @param TmdbApiService $tmdbApiService
      *
      * @return JsonResponse
+     *
+     * @throws \Symfony\Contracts\HttpClient\Exception\ClientExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\RedirectionExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\ServerExceptionInterface
+     * @throws \Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface
      */
     public function getDetails(int $id, TmdbApiService $tmdbApiService)
     {

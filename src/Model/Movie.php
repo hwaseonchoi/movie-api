@@ -164,4 +164,18 @@ class Movie
     {
         $this->ratingCount = $ratingCount;
     }
+
+    public static function create($tmdbObject): Movie
+    {
+        $movieDetails = new Movie();
+        $movieDetails->setId($tmdbObject->id);
+        $movieDetails->setImdbId($tmdbObject->imdb_id);
+        $movieDetails->setTitle($tmdbObject->title);
+        $movieDetails->setPosterPath($tmdbObject->poster_path);
+        $movieDetails->setYear(substr($tmdbObject->release_date, 0,4));
+        $movieDetails->setRating($tmdbObject->vote_average);
+        $movieDetails->setRatingCount($tmdbObject->vote_count);
+
+        return $movieDetails;
+    }
 }

@@ -7,7 +7,14 @@ use Symfony\Contracts\HttpClient as HttpContract;
 
 class TmdbApiConnector
 {
+    /**
+     * @var string
+     */
     protected $url;
+
+    /**
+     * @var HttpContract\HttpClientInterface
+     */
     protected $client;
 
     public function __construct(string $url)
@@ -22,7 +29,7 @@ class TmdbApiConnector
      * @return HttpContract\ResponseInterface
      * @throws HttpContract\Exception\TransportExceptionInterface
      */
-    public function get(array $criteria)
+    public function get(array $criteria): HttpContract\ResponseInterface
     {
         return $this->client->request(
             'GET',

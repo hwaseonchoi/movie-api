@@ -19,32 +19,29 @@ class TmdbApiService
     }
 
     /**
-     * @param array $criteria
-     * @return HttpContract\ResponseInterface
+     * Manage the response from the tmdb API
+     *
+     * @param $criteria
+     * @return Movie|null
+     *
+     * @throws HttpContract\Exception\ClientExceptionInterface
+     * @throws HttpContract\Exception\RedirectionExceptionInterface
+     * @throws HttpContract\Exception\ServerExceptionInterface
      * @throws HttpContract\Exception\TransportExceptionInterface
      */
-    public function search(array $criteria)
+    public function getData($criteria): ?Movie
     {
-        return $this->connector->get($criteria);
-    }
-
-    public function getData($criteria)
-    {
-        $response = $this->search($criteria);
+        $response = $this->connector->get($criteria);
 
         if (Response::HTTP_OK === $response->getStatusCode()) {
             $data = $response->getContent();
             $decodedData = json_decode($data);
-            $movieDetails = new Movie();
-            $movieDetails->setId($decodedData->id);
-            $movieDetails->setImdbId($decodedData->imdb_id);
-            $movieDetails->setTitle($decodedData->title);
-            $movieDetails->setPosterPath($decodedData->poster_path);
-            $movieDetails->setYear(substr($decodedData->release_date, 0,4));
-            $movieDetails->setRating($decodedData->vote_average);
-            $movieDetails->setRatingCount($decodedData->vote_count);
 
-            return $movieDetails;
+            return Movie::create($decodedData);
         }
+
+        // Would be better to implement in order to catch and handle different response from TMDB API
+
+        return null;
     }
 }
